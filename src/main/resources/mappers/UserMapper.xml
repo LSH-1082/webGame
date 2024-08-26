@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.web.application.webgame.mapper.UserMapper">
+
+    <select id="findByUsername" resultType="userModel">
+        SELECT * FROM users WHERE username=#{username}
+    </select>
+
+    <insert id="register" parameterType="userModel">
+        INSERT INTO users(username, password, win_count, lose_count) VALUES(#{username}, #{password}, #{winCount}, #{loseCount})
+    </insert>
+
+</mapper>
