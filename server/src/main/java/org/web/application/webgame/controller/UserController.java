@@ -2,10 +2,7 @@ package org.web.application.webgame.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.web.application.webgame.DTO.UserDTO;
 import org.web.application.webgame.service.UserService;
 
@@ -23,5 +20,10 @@ public class UserController {
             case "nameFailed" -> ResponseEntity.badRequest().body("중복된 이름이 존재합니다.");
             default -> ResponseEntity.badRequest().body("알 수 없는 오류가 발생하였습니다!");
         };
+    }
+
+    @GetMapping("/login")
+    public UserDTO login(@RequestBody UserDTO userDTO){
+        return userDTO;
     }
 }

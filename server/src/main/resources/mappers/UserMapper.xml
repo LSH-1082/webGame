@@ -9,7 +9,7 @@
     </select>
 
     <insert id="register" parameterType="userModel">
-        INSERT INTO users(username, password, win_count, lose_count) VALUES(#{username}, #{password}, #{winCount}, #{loseCount})
+        INSERT INTO users(username, password, win_count, lose_count, user_role) VALUES(#{username}, #{password}, #{winCount}, #{loseCount}, #{userRole})
     </insert>
 
 </mapper>

@@ -13,4 +13,5 @@ public class UserModel {
     private String password;
     private int winCount;
     private int loseCount;
+    private UserRole userRole;
 }
