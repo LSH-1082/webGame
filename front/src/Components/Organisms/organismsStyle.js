@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginRegisterOrganism = styled.div`
+export const LoginRegisterOrganism = styled.form`
     width: 500px;
     height: 450px;
     border: 4px solid;

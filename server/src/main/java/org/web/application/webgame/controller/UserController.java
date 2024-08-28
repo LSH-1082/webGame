@@ -9,6 +9,7 @@ import org.web.application.webgame.service.UserService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
+@CrossOrigin("http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
@@ -22,7 +23,7 @@ public class UserController {
         };
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public UserDTO login(@RequestBody UserDTO userDTO){
         return userDTO;
     }

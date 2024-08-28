@@ -1,9 +1,9 @@
 import { LoginRegisterButton as Button } from "./atomsStyle";
 
-const LoginRegisterButton = (props) => {
+const LoginRegisterButton = ({type = "button", onClick, text}) => {
 
     return(<>
-    <Button>{props.text}</Button> 
+    <Button type={type} onClick={onClick}>{text}</Button> 
     </>);
 }
 

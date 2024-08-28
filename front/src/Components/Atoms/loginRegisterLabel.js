@@ -1,8 +1,8 @@
 import { LoginRegisterLabel as Label } from "./atomsStyle";
 
-const LoginRegisterLabel = (props) => {
+const LoginRegisterLabel = ({text}) => {
     return(<>
-    <Label>{props.text}</Label>
+    <Label>{text}</Label>
     </>);
 }
 
