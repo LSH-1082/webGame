@@ -1,11 +1,19 @@
 import './App.css';
-import LoginOrganism from './Components/Organisms/loginOrganism';
+import LoginPage from './Components/Pages/loginPage';
+import RegisterPage from './Components/Pages/registerPage';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  return (<>
-  <LoginOrganism/>
-  </>);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+      </Routes>
+    </Router>
+  );
 }
 
 

@@ -1,16 +1,18 @@
 import LoginRegisterLabel from "../Atoms/loginRegisterLabel"
 import LoginRegisterInput from "../Atoms/loginRegisterInput"
-import { LoginRegisterInput as Login } from "./meleculesStyle"
+import { LoginRegisterInput as Register } from "./meleculesStyle"
 
-const LoginInput = () => {
+const RegisterInput = () => {
     return(
-        <Login>
+        <Register>
             <LoginRegisterLabel text="ID"/>
             <LoginRegisterInput type="text"/>
             <LoginRegisterLabel text="Password"/>
             <LoginRegisterInput type="password"/>
-        </Login>
+            <LoginRegisterLabel text="Password Check"/>
+            <LoginRegisterInput type="password"/>
+        </Register>
     )
 }
 
-export default LoginInput;
+export default RegisterInput;

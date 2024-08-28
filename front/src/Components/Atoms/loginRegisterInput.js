@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LoginRegisterInput as Input} from "./atomsStyle";
+import axios from "axios";
 
 const LoginRegisterInput = (props) => {
     const [input, setInput] = useState();
