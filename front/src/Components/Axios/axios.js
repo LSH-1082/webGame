@@ -1,11 +1,20 @@
 import axios from "axios";
 
+const baseURL = "http://localhost:8080"
+
 const instance = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: baseURL,
     headers: {
         "Content-Type": "application/json"
     }
 });
 
-export const loginUser = userData => instance.post("/user/login", userData);
+const formInstance = axios.create({
+    baseURL: baseURL,
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
+
+export const loginUser = userData => formInstance.post("/login", userData);
 export const registerUser = userData => instance.post("/user/register", userData);

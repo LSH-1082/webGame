@@ -14,10 +14,10 @@ const LoginOrganism = () => {
 
     const login = (e) => {
         e.preventDefault();
-        loginUser({
-            username: username,
-            password: password
-        }).then((res) => console.log(res.data));
+        const formData = new FormData
+        formData.append("username", username);
+        formData.append("password", password);
+        loginUser(formData).then((res) => console.log(res.data));
     }
 
 

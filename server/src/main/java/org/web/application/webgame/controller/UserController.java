@@ -9,7 +9,6 @@ import org.web.application.webgame.service.UserService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
-@CrossOrigin("http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
@@ -21,10 +20,5 @@ public class UserController {
             case "nameFailed" -> ResponseEntity.badRequest().body("중복된 이름이 존재합니다.");
             default -> ResponseEntity.badRequest().body("알 수 없는 오류가 발생하였습니다!");
         };
-    }
-
-    @PostMapping("/login")
-    public UserDTO login(@RequestBody UserDTO userDTO){
-        return userDTO;
     }
 }
