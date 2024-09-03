@@ -18,7 +18,7 @@ const RegisterOrganism = () => {
 
     const register = (e) => {
         e.preventDefault();
-        if(formCheck()){
+        if(checkForm()){
             registerUser({
                 username: username,
                 password: password
@@ -31,7 +31,7 @@ const RegisterOrganism = () => {
         } 
     } 
 
-    const formCheck = () => {
+    const checkForm = () => {
         if(username === "" || password === "" || passwordCheck === ""){
             alert("모든 항목을 입력해주세요!");
             return false;

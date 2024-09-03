@@ -4,14 +4,15 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.web.application.webgame.security.DTO.CustomUserDetails;
 
 @RequiredArgsConstructor
+@Slf4j
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
@@ -21,11 +22,16 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String username = obtainUsername(req);
         String password = obtainPassword(req);
 
-        System.out.println(username);
-
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password, null);
 
-        return authenticationManager.authenticate(token);
+        try{
+            return authenticationManager.authenticate(token);
+        }
+        catch (AuthenticationException e){
+            log.error("Occurred login error!");
+            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return null;
+        }
     }
 
 
@@ -38,6 +44,5 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     //로그인 실패시 실행하는 메소드
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
-        response.setStatus(401);
     }
 }

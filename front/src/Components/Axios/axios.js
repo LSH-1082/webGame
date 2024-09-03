@@ -14,7 +14,7 @@ const formInstance = axios.create({
     headers: {
         "Content-Type": "multipart/form-data"
     }
-})
+});
 
 export const loginUser = userData => formInstance.post("/login", userData);
 export const registerUser = userData => instance.post("/user/register", userData);

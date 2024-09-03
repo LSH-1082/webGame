@@ -12,14 +12,23 @@ const LoginOrganism = () => {
     const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
-    const login = (e) => {
-        e.preventDefault();
-        const formData = new FormData
-        formData.append("username", username);
-        formData.append("password", password);
-        loginUser(formData).then((res) => console.log(res.data));
+    const checkForm = () => {
+        if(username === "" || password === ""){
+            alert("아이디/비밀번호를 입력해 주세요!");
+            return false;
+        }
+        return true;
     }
 
+    const login = (e) => {
+        e.preventDefault();
+        if(checkForm()){
+            const formData = new FormData();
+            formData.append("username", username);
+            formData.append("password", password);
+            loginUser(formData).catch(error => alert("아이디 혹은 비밀번호가 일치하지 않습니다!"));
+        }
+    }
 
     return(
     <Organism onSubmit={login}>
