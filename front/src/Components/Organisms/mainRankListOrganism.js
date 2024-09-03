@@ -10,18 +10,6 @@ const MainRankListOrganism = () => {
             <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
             <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
             <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
-            <MainRank userId="qwer" winCount="134" winRate="73.2%"/>
         </Organisms>
     );
 }

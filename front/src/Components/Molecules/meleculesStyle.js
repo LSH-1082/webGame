@@ -35,12 +35,12 @@ export const MainRoom = styled.div`
 `
 
 export const MainRankId = styled.div`
-    display: flex;
 `
 
 export const MainRankStat = styled.div`
 `
 
 export const MainRank = styled.div`
+    padding-left: 10px;
     border-bottom: solid 2px grey;
 `
