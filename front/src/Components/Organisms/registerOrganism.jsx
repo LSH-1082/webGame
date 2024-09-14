@@ -1,13 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import RegisterInput from "../Molecules/registerInput";
 import LoginRegisterButton from "../Atoms/loginRegisterButton";
 import {LoginRegisterOrganism as Organism} from "./organismsStyle";
-import { registerUser } from "../Axios/axios";
+import useRegister from "../../Hooks/useRegister";
 
 const RegisterOrganism = () => {
-    const navigate = useNavigate();
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
@@ -16,35 +13,15 @@ const RegisterOrganism = () => {
     const onPasswordChange = (e) => setPassword(e.target.value);
     const onPasswordCheckChange = (e) => setPasswordCheck(e.target.value);
 
-    const register = (e) => {
+    const {register} = useRegister();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if(checkForm()){
-            registerUser({
-                username: username,
-                password: password
-            }).then(res => {
-                alert("회원가입이 완료 되었습니다. 로그인해주세요.");
-                navigate("/");
-            }).catch(error => {
-                alert(error.response.data);
-            })
-        } 
-    } 
-
-    const checkForm = () => {
-        if(username === "" || password === "" || passwordCheck === ""){
-            alert("모든 항목을 입력해주세요!");
-            return false;
-        }
-        if(password !== passwordCheck){
-            alert("비밀번호와 비밀번호 확인이 일치하지 않습니다!");
-            return false;
-        }
-        return true;
+        register(username, password, passwordCheck);
     }
-
+ 
     return(
-    <Organism onSubmit={register}>
+    <Organism onSubmit={handleSubmit}>
         <RegisterInput 
             username={username} 
             password={password} 

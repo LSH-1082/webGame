@@ -1,10 +1,7 @@
 import { MainUserOrganism as Organism } from "./organismsStyle";
 import MainUserInfo from "../Molecules/mainUserInfo";
 
-const MainUserOrganism = () => {
-    let idText = "qwer";
-    let winText = 3;
-    let loseText = 8;
+const MainUserOrganism = ({idText, winText, loseText}) => {
     let rateText = `${((winText/(winText + loseText)) * 100).toFixed(1)}%`;
 
     return(
